@@ -21,9 +21,12 @@ int main(){
 	clock_t timeStamp;
 	double duration;
 	BST<upcCode> tree;
-	upcFile.open("upc_corpus.txt");
+	string userInput;
+	cout<<"Enter file name: ";
+	cin>>userInput;
+	upcFile.open(userInput);
 	if(!upcFile){
-		cout<<"Unable to find upc_corpus.txt."<<endl;
+		cout<<"Unable to find "<<userInput<<endl;
 		exit(0); }
 		
 	//BST initialize
@@ -66,10 +69,7 @@ int main(){
 	upcFile.close();
 	duration=(clock()-timeStamp)/(double) CLOCKS_PER_SEC;
 	cout<<"Array initialize time: "<<fixed<<duration<<"s"<<endl;
-	
-	
-	
-	string userInput;
+		
 	while(1){
 		cout<<"Enter a UPC code(q to exit): ";
 		cin>>userInput;
